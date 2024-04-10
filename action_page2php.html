@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Leave a message</title>
+</head>
+
+<body>
+<!--PHP--->
+		<?php
+
+		// servername => localhost
+		// username => root
+		// password => empty
+		// database name => newsletter
+		$conn = mysqli_connect("localhost", "root", "", "newsletter");
+		
+		// Check connection
+		if($conn === false){
+			die("ERROR: Could not connect. "
+				. mysqli_connect_error());
+		}
+		
+		// Taking all 5 values from the form data(input)
+		$full_name = $_REQUEST['full_name'];
+		$email = $_REQUEST['email'];
+		// Performing insert query execution		
+
+        $strQuery = "INSERT INTO subscription (full_name,email) 
+        VALUES('$full_name','$email')";
+
+
+		if(mysqli_query($conn, $strQuery)){
+			echo "<h3> We have received your Subscription. <br>Thank you for subscribing.";
+		} else{
+			echo "ERROR: Hush! Sorry $strQuery. "
+				. mysqli_error($conn);
+		}
+		
+		// Close connection
+		mysqli_close($conn);
+		?>
+</body>
+
+</html>

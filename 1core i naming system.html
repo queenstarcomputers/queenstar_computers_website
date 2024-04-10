@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  
+    
+    <style>
+        table {
+  width: 100%;
+}
+  table, th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+
+}
+
+   </style>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+  <div class="header">
+    <a href="index.html"><img src="images/Queenstar_Web_Logo_final-removebg-preview.png"></a>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <!--BANNER-->
+  <!---slideshow-->
+  
+  <div class="slider">
+        <div class="slide active">
+          <img src="banner_image.jpg" alt="">
+          <div class="info">
+              <h2>Web & Systems Design </h2>
+            <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+            business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+             </p>
+          
+          </div>
+        </div>
+        <div class="slide">
+       <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+          <img src="nworking.jpg" alt="">
+          <div class="info">
+      <h2>Networking</h2>
+      <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="mtenance.jpg" alt="">
+          <div class="info">
+            <h2>ICT Maintenance</h2>
+            <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="banner1.jpg" alt="">
+          <div class="info">
+              <h2>ICT Consultancy</h2>
+        <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+          </div>
+        </div>
+        
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          const slides = document.querySelectorAll(".slide");
+          const slideIcons = document.querySelectorAll(".slide-icon");
+          const numberOfSlides = slides.length;
+          var slideNumber = 0;
+      
+          //image slider next button
+          nextBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber++;
+      
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider previous button
+          prevBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber--;
+      
+            if(slideNumber < 0){
+              slideNumber = numberOfSlides - 1;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider autoplay
+          var playSlider;
+      
+          var repeater = () => {
+            playSlider = setInterval(function(){
+              slides.forEach((slide) => {
+                slide.classList.remove("active");
+              });
+              slideIcons.forEach((slideIcon) => {
+                slideIcon.classList.remove("active");
+              });
+      
+              slideNumber++;
+      
+              if(slideNumber > (numberOfSlides - 1)){
+                slideNumber = 0;
+              }
+      
+              slides[slideNumber].classList.add("active");
+              slideIcons[slideNumber].classList.add("active");
+            }, 6000);
+          }
+          repeater();
+      
+          //stop the image slider autoplay on mouseover
+          slider.addEventListener("mouseover", () => {
+            clearInterval(playSlider);
+          });
+      
+          //start the image slider autoplay again on mouseout
+          slider.addEventListener("mouseout", () => {
+            repeater();
+          });
+          </script>
+<!---BLOG-->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/Blog</p>
+<div class="rowblog">
+  <div class="columnblog left" style="background-color:none;">
+
+    <h2> Differences between Intel Core i3, i5, i7, and i9 Processors </h2>
+    <p style="font-size:15px; font-style:italic;"> <a style="text-decoration: none;" href="#">Queenstar Computers:</a> 15 Dec, 2023  | Category>> Hardware</p>
+
+    <p> The processor is the brain of a computer i.e, it is the main part of a computer system like the brain of a human being. The operating system loads program instructions and data into the main memory (RAM) and the CPU interprets the instructions in the program and executes them one by one by fetching them (program instructions) from the main memory (RAM). Understanding the difference between processors is very crucial in understanding the right computer requirements based on your activity. Nowadays people are often confused about what to buy concerning core i3, i5, or i7 processors. The first thing to note is that Core i3, Core i5, and Core i7 do not mean three, five, and seven-core processors respectively but these are just names to indicate relative performance. This naming system of Intel is quite confusing and the basic thing is to understand the <b>core i </b> naming system. </p>
+    
+    <img src="coreiProcessor.png" alt="#" style="width:100%">
+
+    <h3> Intel Core i3 Processor</h3>
+    <p> This processor is best suited for light basic jobs both at home and in the office. This processor can comfortably handle everyday office tasks such as word processing and spreadsheets. However, it can handle more demanding tasks but the processor’s limits will be reached fast. When compared to Core i5 and Core i7, it consumes less power and hence emits less heat. </p>
+    <h3> Intel Core i5 Processor </h3>
+    <p> The Core i5 processor acts as the median in these series. This processor can handle more demanding and intensive tasks such as graphic design, 3D modeling, and video editing.  This processor consumes a moderate amount of power and emits a moderate amount of heat. </p>
+    <h3> Intel Core i7 Processor</h3>
+    <p> This is a stronger processor than the core i5 and thus handles higher processor-intensive tasks such as virtualization, software development, high-quality video editing, gaming, etc. It supports multitasking at a high speed. Core i7 Processor consumes a lot of power and emits a lot of heat. </p>
+    <h3> Core i9 Processor </h3>
+    <p> It supports multitasking at a higher speed than the Core i7 Processor. This processor is suitable for pro-gamers, designers, content creators, software developers, etc. for instance, it is good for gaming if you buy a G processor or a Q processor with a dedicated graphics processor. </p>
+    <h3> Core i12 Processor </h3>
+    <p> This processor has eight Performance (P) cores and eight Efficient (E) cores hence a total of 16 cores for a single chip. This processor is reserved for specialist computers working on extremely challenging tasks, usually editing large videos, Artificial intelligence, and enhanced tuning to allow gamers to game with up to 5.8 GHz clock speed. </p>
+    <p> However, don't just rely on Intel's naming system since processors, regardless of whether they are Core i3, i5,i7, or i9, based on the same architecture are fundamentally the same inside. The differences in performance are a result of which features are enabled or disabled, the clock speed, and how many cores each one has. </p>
+    <p> The feature table below shows how the most popular processors line up in terms of features. </p>
+    <table style="color:#596275;">
+       <thead> 
+        <tr>
+        <th> Model </th>
+        <th> Core i3</th>
+        <th> Core i5</th>
+        <th> Core i7</th>
+        <th> Core i9</th>
+        </tr>
+        </thead> 
+    <tr>
+        <th> No. of cores </th>
+        <td> 2</td>
+        <td> 4</td>
+        <td> 4</td>
+        <td> 8</td>
+    </tr>
+    <tr>
+        <th> Hyper-threading </th>
+        <td> Yes </td>
+        <td> selected Models </td>
+        <td> Yes </td>
+        <td> Yes </td>
+    </tr>
+    <tr>
+        <th> Turbo boost </th>
+        <td> No</td>
+        <td> Yes </td>
+        <td> Yes </td>
+        <td> Yes </td>
+    </tr>
+    <tr>
+        <th> K model </th>
+        <td> No</td>
+        <td> Yes </td>
+        <td> Yes </td>
+        <td> Yes </td>
+    </tr>
+    <tr>
+        <th> K model </th>
+        <td> Low</td>
+        <td> Mid-range </td>
+        <td> High </td>
+        <td> Best </td>
+        </tr>
+        <tr>
+        <th> Graphics </th>
+        <td> Low</td>
+        <td> Mid-range </td>
+        <td> High </td>
+        <td> Best </td>
+        </tr>
+        <tr>
+        <th> Price </th>
+        <td> Low</td>
+        <td> Mid-range </td>
+        <td> High </td>
+        <td> Best </td>
+        </tr>
+        <tr>
+        <th> Cache size </th>
+        <td> 4-12MB </td>
+        <td> 4-20MB </td>
+        <td> 12-25MB </td>
+        <td> 16-30MB </td>
+        </tr>
+    </table>
+        
+
+
+<br><br>
+<a href="blog.html" style="text-decoration:none"><h4>Read also ->>>>></h4></a>
+
+  </div>
+
+  <div class="columnblog right" style="background-color: none;">
+ 
+        <!----Recent Posts-->
+        <h2>Recent Posts</h2>
+        <img src="ictbusiness.jpg" alt="#" style="width:100%">
+        <a href="7businessInvestmentin ICT.html" style="text-decoration: none;"><h4> Why are businesses investing so much in information systems and technology? </h4></a>
+    
+        <img src="algorithm.png" alt="#" style="width:100%">
+          <a href="8efficiencyAndAnalysisofAlgorithm.html" style="text-decoration: none;"><h4> Efficiency and Analysis of Algorithm</h4></a>
+        <!----Categories-->
+        <div class="categ">
+          <h2>Categories</h2>
+        <a href="#">>> Hardware</a>
+        <a href="#">>> Software</a>
+        <a href="#">>> Programming</a>
+        <a href="#">>> Networking</a>
+        <a href="#">>> CyberSecurity</a>
+        <a href="#">>> Tech Trends</a>
+        <a href="#">>> FinTech</a>
+        <a href="#">>> BizTech</a>
+        </div>
+        <!----Subscribe-->
+   
+        
+        
+  </div>
+
+</div>
+
+<h2>You May also Like</h2>
+<hr style="width:12%;height:2px;border-width:0;background-color:#25CCF7;margin-left:44%;">
+
+<!-- You May also Like -->
+<div class="rows">
+
+<div class="columns">
+  <div class="contents">
+    <img src="1blogimg.png" alt="#" style="width:100%;border-radius: 0%;">
+    <a href="2cpucore.html"><h4>Different Types of CPU Cores</h4></a>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="contents">
+    <img src="3blogimg.jpg" alt="#" style="width:100%;border-radius: 0%;">
+    <a href="3cyberthreats.html"><h4>Major Information Security Threats and Control Measures</h4></a>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="contents">
+    <img src="4blogimg.jpg" alt="#" style="width:100%;border-radius: 0%;">
+    <a href="4websignificance.html"><h4>7 Major Reasons why your business needs a Website</h4></a>
+  </div>
+</div>
+<div class="columns">
+  <div class="contents">
+    <img src="5blogimg.png" alt="#" style="width:100%;border-radius: 0%;">
+    <a href="5cpuPerformance.html"><h4>Factors that Determine Performance/Speed of CPU</h4></a>
+  </div>
+</div>
+<!-- END GRID -->
+</div>
+
+
+
+
+<!-- CAPTION -->
+<div class="caption">
+<h4>“We have the Knowledge and Experience to Perfect It.”</h4>
+</div>
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="images/Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+         1st Floor, Rm B3</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+  
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="images/whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>

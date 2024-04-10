@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  
+    
+    <style>
+  
+   </style>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+  <div class="header">
+    <a href="index.html"><img src="Queenstar_Web_Logo_final-removebg-preview.png"></a>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <!--BANNER-->
+  <!---slideshow-->
+  
+  <div class="slider">
+        <div class="slide active">
+          <img src="banner_image.jpg" alt="">
+          <div class="info">
+              <h2>Web & Systems Design </h2>
+            <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+            business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+             </p>
+          
+          </div>
+        </div>
+        <div class="slide">
+       <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+          <img src="nworking.jpg" alt="">
+          <div class="info">
+      <h2>Networking</h2>
+      <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="mtenance.jpg" alt="">
+          <div class="info">
+            <h2>ICT Maintenance</h2>
+            <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="banner1.jpg" alt="">
+          <div class="info">
+              <h2>ICT Consultancy</h2>
+        <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+          </div>
+        </div>
+        
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          const slides = document.querySelectorAll(".slide");
+          const slideIcons = document.querySelectorAll(".slide-icon");
+          const numberOfSlides = slides.length;
+          var slideNumber = 0;
+      
+          //image slider next button
+          nextBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber++;
+      
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider previous button
+          prevBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber--;
+      
+            if(slideNumber < 0){
+              slideNumber = numberOfSlides - 1;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider autoplay
+          var playSlider;
+      
+          var repeater = () => {
+            playSlider = setInterval(function(){
+              slides.forEach((slide) => {
+                slide.classList.remove("active");
+              });
+              slideIcons.forEach((slideIcon) => {
+                slideIcon.classList.remove("active");
+              });
+      
+              slideNumber++;
+      
+              if(slideNumber > (numberOfSlides - 1)){
+                slideNumber = 0;
+              }
+      
+              slides[slideNumber].classList.add("active");
+              slideIcons[slideNumber].classList.add("active");
+            }, 6000);
+          }
+          repeater();
+      
+          //stop the image slider autoplay on mouseover
+          slider.addEventListener("mouseover", () => {
+            clearInterval(playSlider);
+          });
+      
+          //start the image slider autoplay again on mouseout
+          slider.addEventListener("mouseout", () => {
+            repeater();
+          });
+          </script>
+  
+  
+<!---BLOG-->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/Blog</p>
+<div class="rowblog">
+  <div class="columnblog left" style="background-color:none;">
+    <h2>Importance of Maintaining Computer Systems</h2>
+    <p style="font-size:15px; font-style:italic;"> <a style="text-decoration: none;" href="#">Gerom ICT Solutions:</a> 15 Dec, 2023  | Category>> Hardware</p>
+    <p>Computer maintenance entails a series of actions on a computer system (both software and hardware) to achieve optimal performance. This means keeping your computer system in good condition through regular cleanings, software updates, and malware prevention.</p> 
+    <img src="mtenance.jpg" alt="#" style="width:100%">
+
+    <p>Computer maintenance has numerous benefits, as follows:</p>
+    
+    <h3> Early Detection of Problems </h3>
+<p> The adage goes, "If you don't seal up a small crack on the wall, you will end up building the entire wall." The same applies to computer systems in terms of maintenance. Regular computer system maintenance helps eliminate minor problems before they become big problems. Therefore, there is no small problem in a computer system to be ignored. Every issue, however small, should be handled with utmost urgency and seriousness and help solve huge future issues. </p>
+<h3> Computer Optimization </h3>
+<p> Sometimes you have experienced a computer taking too long to boot or open a particular file. In other instances, you have experienced a computer hanging or freezing. All these are annoying scenarios to the user. This is a sign that your computer system is poorly maintained. It is usual for a computer to get contaminated with files and other forms of junk. In this regard, regular maintenance can help speed up a computer system, ensuring the user enjoys their experience. </p>
+<h3>  Prevents Malware and Computer Viruses </h3>
+<p> Malware is an umbrella term for malicious software such as spyware, ransomware, viruses, and worms. Malware is activated when a user clicks on a malicious link or attachment, leading to dangerous software installation. A computer virus is a type of malware that spreads between computers and causes damage to data and software. A computer virus infects devices and replicates itself across systems, and requires human intervention to propagate. Once activated, malware can block access to crucial network components (ransomware); disrupt individual modules, making the system inoperable; secretly obtain information by transmitting data from the hard drive (spyware), and install additional harmful software. Using antivirus and anti-malware software is an effective way to prevent malware attacks. However, the antivirus and anti-malware software should be updated to combat newly developed malware and viruses effectively. </p>
+<h3>  Improves Software Efficiency </h3>
+<p> A computer typically relies on various types of software to run. There is system and application software that operate interactively. To ensure that the software functions optimally, they need regular updating. Software updates improve functionality while simultaneously addressing existing issues, crashes, and bugs. Also, hardware updates (e.g., RAM or hard drive) are essential since they help to improve the user's overall computing experience. </p>
+<h3>  Increases Memory (RAM) </h3>
+<p> Continued computer system use results in the accumulation of files in the hard disk and memory. This is one of the major causes of a computer system running slow and freezing (hanging). In this regard, regular computer maintenance by deleting old files and applications; clearing cache; removing unwanted browser extensions; and software update help to free RAM space. </p>
+<h3>  Prevents Data Loss </h3>
+<p> When data is lost, the day-to-day operations of a business are disrupted. Data loss makes an enterprise spend money, time, and resources trying to recreate or recover lost files that could have been used elsewhere. Data can be lost due to virus attacks, file corruption, formatting errors, etc. Regular maintenance of computer systems through backups, scanning for viruses, and software updates reduce the chances of data loss hence an assurance of the security of your data. </p>
+<h3>  Prevents Tear and Wear  </h3>
+<p> Like any other electronic device, a computer system undergoes tear and wear. With time, a computer system can harbor dust, pests, and other debris forms, which can lower its performance. Therefore, recommended alcohol-based solvents and regular wiping of casing, keyboard, mouse, monitor, and other external components are needed. Also, regular computer blowing should be done to eliminate dust and debris clogged in vents and cables. All these measures ensure that your computer system is clean and does not tear and wear faster. </p>
+  
+<br><br>
+<a href="6ictAndGlobalization.html" style="text-decoration:none"><h4>Read also ->>>>></h4></a>
+
+  </div>
+
+
+  <div class="columnblog right" style="background-color: none;">
+ 
+        <!----Recent Posts-->
+        <h2>Recent Posts</h2>
+        <img src="ictbusiness.jpg" alt="#" style="width:100%">
+        <a href="#" style="text-decoration: none;"><h4> Why are businesses investing so much in information systems and technology? </h4></a>
+    
+        <img src="algorithm.png" alt="#" style="width:100%">
+          <a href="#" style="text-decoration: none;"><h4> Efficiency and Analysis of Algorithm</h4></a>
+        
+        <!----Categories-->
+        <div class="categ">
+          <h2>Categories</h2>
+        <a href="#">>> Hardware</a>
+        <a href="#">>> Software</a>
+        <a href="#">>> Programming</a>
+        <a href="#">>> Networking</a>
+        <a href="#">>> CyberSecurity</a>
+        <a href="#">>> Tech Trends</a>
+        <a href="#">>> FinTech</a>
+        <a href="#">>> BizTech</a>
+        </div>
+        <!----Subscribe-->
+
+        
+  </div>
+</div>
+
+<h2>You May also Like</h2>
+<hr style="width:12%;height:2px;border-width:0;background-color:#25CCF7;margin-left:44%;">
+
+<!-- You May also Like -->
+<div class="rows">
+  <div class="columns">
+    <div class="contents">
+      <img src="1blogimg.png" alt="#" style="width:100%;border-radius: 0%;">
+      <a href="1core i naming system.html"><h4> Differences between Intel Core i3, i5, i7, and i9 Processors</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="2blogimg.png" alt="#" style="width:100%;border-radius: 0%;">
+      <a href="2cpucore.html"><h4>Different Types of CPU Cores</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="3blogimg.jpg" alt="#" style="width:100%;border-radius: 0%;">
+      <a href="3cyberthreats.html"><h4>Major Information Security Threats and Control Measures</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="4blogimg.jpg" alt="#" style="width:100%;border-radius: 0%;">
+      <a href="4websignificance.html"><h4>7 Major Reasons why your business needs a Website</h4></a>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- CAPTION -->
+<div class="caption">
+<h4>“We have the Knowledge and Experience to Perfect It.”</h4>
+</div>
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+         1st Floor, Rm B3</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>

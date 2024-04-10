@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  
+    
+    <style>
+  
+   </style>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+  <div class="header">
+    <a href="index.html"><img src="Queenstar_Web_Logo_final-removebg-preview.png"></a>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <!--BANNER-->
+  <!---slideshow-->
+  
+  <div class="slider">
+        <div class="slide active">
+          <img src="banner_image.jpg" alt="">
+          <div class="info">
+              <h2>Web & Systems Design </h2>
+            <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+            business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+             </p>
+          
+          </div>
+        </div>
+        <div class="slide">
+       <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+          <img src="nworking.jpg" alt="">
+          <div class="info">
+      <h2>Networking</h2>
+      <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="mtenance.jpg" alt="">
+          <div class="info">
+            <h2>ICT Maintenance</h2>
+            <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="banner1.jpg" alt="">
+          <div class="info">
+              <h2>ICT Consultancy</h2>
+        <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+          </div>
+        </div>
+        
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          const slides = document.querySelectorAll(".slide");
+          const slideIcons = document.querySelectorAll(".slide-icon");
+          const numberOfSlides = slides.length;
+          var slideNumber = 0;
+      
+          //image slider next button
+          nextBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber++;
+      
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider previous button
+          prevBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber--;
+      
+            if(slideNumber < 0){
+              slideNumber = numberOfSlides - 1;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider autoplay
+          var playSlider;
+      
+          var repeater = () => {
+            playSlider = setInterval(function(){
+              slides.forEach((slide) => {
+                slide.classList.remove("active");
+              });
+              slideIcons.forEach((slideIcon) => {
+                slideIcon.classList.remove("active");
+              });
+      
+              slideNumber++;
+      
+              if(slideNumber > (numberOfSlides - 1)){
+                slideNumber = 0;
+              }
+      
+              slides[slideNumber].classList.add("active");
+              slideIcons[slideNumber].classList.add("active");
+            }, 6000);
+          }
+          repeater();
+      
+          //stop the image slider autoplay on mouseover
+          slider.addEventListener("mouseover", () => {
+            clearInterval(playSlider);
+          });
+      
+          //start the image slider autoplay again on mouseout
+          slider.addEventListener("mouseout", () => {
+            repeater();
+          });
+          </script>
+ 
+  
+<!---BLOG-->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/Blog</p>
+<div class="rowblog">
+  <div class="columnblog left" style="background-color:none;">
+    <h2> Why are businesses investing so much in information systems and technology? </h2>
+    <p style="font-size:15px; font-style:italic;"> <a style="text-decoration: none;" href="#">Queenstar Computers:</a> 19 Dec, 2023  | Category>> BizTech</p>
+
+    <p> Information systems are essential for conducting day to day business in our organizations. Today’s service industries – finance, insurance, and real estate as well as personal services like travel, medicines and education- could not operate without information systems. Just like offices, telephones, filing cabinets and efficient tall buildings with the elevators, were once the foundations of business in the 20th century. Information technology is a foundation for business in the 21st century. Increasing market share, becoming the high quality or low-cost producer, developing new products and increasing employee’s productivity depend more and more on the kinds and quality of information systems in the organization. Some of the major reasons why businesses are investing a lot in information systems and technology include: </p>
+    <img src="ictbusiness.jpg" alt="#" style="width:100%">
+    <h3> Operational excellence</h3>
+    <p> Businesses improve efficiency of their operation in order to achieve higher profitability. Information systems and technologies are some of important tools available to managers for achieving high levels of efficiency and productivity in business operations, especially when coupled with changes in business practices and management behaviour. For example, in a retail shop, as soon as a customer purchases an item, the supplier monitoring the item knows hence ship a replacement to the shelf. </p>
+    <h3> New products, services and business models </h3>
+    <p> Information systems and technology are major enabling tools for firms to create new products or services as well as entirely business models. A business model describes how a company produces, delivers and sells a product or services to create wealth. In music industry for instance, Apple Inc, transformed an old business model of music distribution based on vinyl records, tapes and CDs into online, legal distribution model based on its own iPod technology platform. Apple has prospered from a continuing stream of iPod innovations, including the iPod, the iTunes music services and the iPhones. </p>
+    <h3> Customer and supplier intimacy</h3>  
+    <p> When a business serves its customers well, the customers will respond by returning and purchasing more. This raises revenues and profits likewise with suppliers. The more the business engages it suppliers the better the suppliers can provide vital inputs and this lowers cost. For example, in the hotel industry, computers are used to keep track of guests’ preferences, such as their preferred room temperature, check in time, frequently dialled telephone numbers and TV programmes and store these data in a giant data repository. With the suppliers, an information system updates as follows; every time an item is bought from a given store, the record of the sales appears immediately on supplier’s computer. Through the computer model, it decides how many replacements items to make and in what colour, models, sizes and styles. It then supplies to its stores. </p>
+    <h3> Improved decision making</h3>  
+    <p> Information systems enable managers to use real time data from the market place when making decision instead of relying on guesses and luck. For example, managers use of web based digital dashboard to provide them with precise real time information on customers’ complaints, network performance for each locality served and line outages or storm damaged lines. Managers use this information to immediately allocate repair resources to affected areas, inform customers of repair efforts and restore services fast. </p>
+    <h3> Competitive advantage </h3>
+    <p> It is providing a product or service in a way that customers value more than what the competition is able to do. When organizations achieve one or more of these business objectives- operational excellence, new products or services and business models; customers/suppliers’ intimacy; and improved decision making- chances are they have already achieved a competitive advantage. For example, charging less for superior products and responding to customers and suppliers in real time all add up to higher sales and profits that your competitors cannot match. </p>
+    <h3> Survival</h3>  
+    <p> Information systems and technology are necessity of doing business which at times is driven by industry-level changes. For example, providing ATM services to retail banking customers is simply a requirement of being in and surviving in the retail banking business. </p>
+    
+
+
+    <br><br>
+<a href="5cpuPerformance.html" style="text-decoration:none"><h4>Read also ->>>>></h4></a>
+
+  </div>
+
+  
+  <div class="columnblog right" style="background-color: none;">
+
+        <!----Recent Posts-->
+        <h2>Recent Posts</h2>
+        <img src="isp.png" alt="#" style="width:100%">
+          <a href="9internetNetworkHierachy.html" style="text-decoration: none;"><h4> Internet Network Hierarchy</h4></a>
+      
+          <img src="algorithm.png" alt="#" style="width:100%">
+            <a href="8efficiencyAndAnalysisofAlgorithm.html" style="text-decoration: none;"><h4> Efficiency and Analysis of Algorithm</h4></a>
+
+
+        <!----Categories-->
+        <div class="categ">
+          <h2>Categories</h2>
+        <a href="#">>> Hardware</a>
+        <a href="#">>> Software</a>
+        <a href="#">>> Programming</a>
+        <a href="#">>> Networking</a>
+        <a href="#">>> CyberSecurity</a>
+        <a href="#">>> Tech Trends</a>
+        <a href="#">>> FinTech</a>
+        <a href="#">>> BizTech</a>
+        </div>
+        <!----Subscribe-->
+ 
+        
+  </div>
+</div>
+
+<h2>You May also Like</h2>
+<hr style="width:12%;height:2px;border-width:0;background-color:#25CCF7;margin-left:44%;">
+
+<!-- You May also Like -->
+<div class="rows">
+  <div class="columns">
+    <div class="contents">
+      <img src="1blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="1core i naming system.html"><h4> Differences between Intel Core i3, i5, i7, and i9 Processors</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="2blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="2cpucore.html"><h4>Different Types of CPU Cores</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="3blogimg.jpg" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="3cyberthreats.html"><h4>Major Information Security Threats and Control Measures</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="4blogimg.jpg" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="4websignificance.html"><h4>7 Major Reasons why your business needs a Website</h4></a>
+    </div>
+  </div>
+<!-- END class rows -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- CAPTION -->
+<div class="caption">
+<h4>“We have the Knowledge and Experience to Perfect It.”</h4>
+</div>
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+          1st Floor, Rm B3</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>

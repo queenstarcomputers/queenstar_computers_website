@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  
+    
+    <style>
+  
+   </style>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+  <div class="header">
+    <a href="index.html"><img src="Queenstar_Web_Logo_final-removebg-preview.png"></a>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <!--BANNER-->
+  <!---slideshow-->
+  
+  <div class="slider">
+        <div class="slide active">
+          <img src="banner_image.jpg" alt="">
+          <div class="info">
+              <h2>Web & Systems Design </h2>
+            <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+            business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+             </p>
+          
+          </div>
+        </div>
+        <div class="slide">
+       <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+          <img src="nworking.jpg" alt="">
+          <div class="info">
+      <h2>Networking</h2>
+      <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="mtenance.jpg" alt="">
+          <div class="info">
+            <h2>ICT Maintenance</h2>
+            <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="banner1.jpg" alt="">
+          <div class="info">
+              <h2>ICT Consultancy</h2>
+        <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+          </div>
+        </div>
+        
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          const slides = document.querySelectorAll(".slide");
+          const slideIcons = document.querySelectorAll(".slide-icon");
+          const numberOfSlides = slides.length;
+          var slideNumber = 0;
+      
+          //image slider next button
+          nextBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber++;
+      
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider previous button
+          prevBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber--;
+      
+            if(slideNumber < 0){
+              slideNumber = numberOfSlides - 1;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider autoplay
+          var playSlider;
+      
+          var repeater = () => {
+            playSlider = setInterval(function(){
+              slides.forEach((slide) => {
+                slide.classList.remove("active");
+              });
+              slideIcons.forEach((slideIcon) => {
+                slideIcon.classList.remove("active");
+              });
+      
+              slideNumber++;
+      
+              if(slideNumber > (numberOfSlides - 1)){
+                slideNumber = 0;
+              }
+      
+              slides[slideNumber].classList.add("active");
+              slideIcons[slideNumber].classList.add("active");
+            }, 6000);
+          }
+          repeater();
+      
+          //stop the image slider autoplay on mouseover
+          slider.addEventListener("mouseover", () => {
+            clearInterval(playSlider);
+          });
+      
+          //start the image slider autoplay again on mouseout
+          slider.addEventListener("mouseout", () => {
+            repeater();
+          });
+          </script>
+
+  
+<!---BLOG-->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/Blog</p>
+<div class="rowblog">
+  <div class="columnblog left" style="background-color:none;">
+    <p style="font-size:15px; font-style:italic;"> <a style="text-decoration: none;" href="#">Queenstar Computers:</a> 19 Dec, 2023  | Category>> Programming</p>
+
+    <h2>  Efficiency (Performance) and Analysis of an Algorithm </h3>  
+        <p>  An algorithm is a sequence of computational steps written in order to carry out some particular tasks. Each step of an algorithm is written in English. Data structures and algorithms are the building blocks of computer programming. </p>  
+        <img src="algorithm.png" alt="#" style="width:100%">
+
+        <h3>  Efficiency (Performance) of an Algorithm</h3>  
+        <p> Efficiency is one of the major measures of performance or efficiency of an algorithm. Efficiency is how fast an algorithm can produce correct results for the given problem.  It depends on: </p>  
+        
+        <p> <b> a) Time complexity (to save time): </b>   It is a way of representing the amount of computer time (compile and run time) needed by a program to run to the completion (execute).  The compile time of an algorithm does not depend on the instance characteristics of the algorithm. The run time of an algorithm is estimated by determining the number of various operations, such as addition, subtraction, multiplication, division, load and store executed by it. A program that runs faster is a better program. </p>   
+        
+        <p> <b> b) Space complexity (to save space): </b> It is the amount of memory space required by an algorithm, during a course of its execution until final output is generated. Space complexity is required in situations when limited memory is available and for the multi user system. It is composed of two different spaces; Auxiliary space and Input space. A program that saves space over a computing program is considerable and desirable.  A function of space needed by an algorithm can be computed by either an empirical or theoretical approach. The empirical testing approach call for implementing the complete algorithm and executing them on a computer for various instances are noted and compared. The algorithm whose implementation yields the least time is considered as the best among the candidate algorithm. </p>
+        
+        <h3>  Analysis of an Algorithm </h3>  
+        <p> Analysis of an Algorithm determines the amount of resources (like time and space) it requires for its execution. Generally, the algorithms are formulated to work with the inputs or arbitrary length. Algorithm analysis provides theoretical estimates required by an algorithm to solve a problem. In computer science, the analysis of algorithms is the process of finding the computational complexity of algorithms i.e., the amount of time, storage, or other resources needed to execute them. We analyze algorithms using a mathematical notation for functions that disregards constant factors i.e., we characterize the running times of algorithms by using functions that map the size of the input, n, to values that correspond to the main factor that determines the growth rate in terms of n.  This approach allows us to focus on the big-picture aspects of an algorithm's running time. </p>
+        <h3> Why Analyze an Algorithm? </h3>
+        <ul> 
+        <li> To discover its characteristics in order to evaluate its suitability for various applications or compare it with other algorithms for the same application. </li>
+        <li> It helps us understand it better, and can suggest informed improvements. </li>
+        <li> Algorithms tend to become shorter, simpler, and more elegant during the analysis process. </li>
+        </ul> 
+        
+        
+        
+        
+        
+
+    <br><br>
+<a href="5cpuPerformance.html" style="text-decoration:none"><h4>Read also ->>>>></h4></a>
+
+  </div>
+
+  
+  <div class="columnblog right" style="background-color: none;">
+
+        <!----Recent Posts-->
+        <h2>Recent Posts</h2>
+        <img src="ictbusiness.jpg" alt="#" style="width:100%">
+          <a href="7businessInvestmentin ICT.html" style="text-decoration: none;"><h4> Why are businesses investing so much in information systems and technology? </h4></a>
+     
+        <img src="isp.png" alt="#" style="width:100%">
+          <a href="9internetNetworkHierachy.html" style="text-decoration: none;"><h4> Internet Network Hierarchy</h4></a>
+        <!----Categories-->
+        <div class="categ">
+          <h2>Categories</h2>
+        <a href="#">>> Hardware</a>
+        <a href="#">>> Software</a>
+        <a href="#">>> Programming</a>
+        <a href="#">>> Networking</a>
+        <a href="#">>> CyberSecurity</a>
+        <a href="#">>> Tech Trends</a>
+        <a href="#">>> FinTech</a>
+        <a href="#">>> BizTech</a>
+        </div>
+        <!----Subscribe-->
+ 
+  </div>
+</div>
+
+<h2>You May also Like</h2>
+<hr style="width:12%;height:2px;border-width:0;background-color:#25CCF7;margin-left:44%;">
+
+<!-- You May also Like -->
+<div class="rows">
+  <div class="columns">
+    <div class="contents">
+      <img src="1blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="1core i naming system.html"><h4> Differences between Intel Core i3, i5, i7, and i9 Processors</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="2blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="2cpucore.html"><h4>Different Types of CPU Cores</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="3blogimg.jpg" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="3cyberthreats.html"><h4>Major Information Security Threats and Control Measures</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="4blogimg.jpg" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="4websignificance.html"><h4>7 Major Reasons why your business needs a Website</h4></a>
+    </div>
+  </div>
+<!-- END class rows -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- CAPTION -->
+<div class="caption">
+<h4>“We have the Knowledge and Experience to Perfect It.”</h4>
+</div>
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+          1st Floor, Rm B3 </span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>

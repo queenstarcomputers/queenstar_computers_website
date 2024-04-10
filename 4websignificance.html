@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  
+    
+    <style>
+  
+   </style>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+  <div class="header">
+    <a href="index.html"><img src="Queenstar_Web_Logo_final-removebg-preview.png"></a>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <!--BANNER-->
+  <!---slideshow-->
+  
+  <div class="slider">
+        <div class="slide active">
+          <img src="banner_image.jpg" alt="">
+          <div class="info">
+              <h2>Web & Systems Design </h2>
+            <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+            business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+             </p>
+          
+          </div>
+        </div>
+        <div class="slide">
+       <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+          <img src="nworking.jpg" alt="">
+          <div class="info">
+      <h2>Networking</h2>
+      <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="mtenance.jpg" alt="">
+          <div class="info">
+            <h2>ICT Maintenance</h2>
+            <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="banner1.jpg" alt="">
+          <div class="info">
+              <h2>ICT Consultancy</h2>
+        <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+          </div>
+        </div>
+        
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          const slides = document.querySelectorAll(".slide");
+          const slideIcons = document.querySelectorAll(".slide-icon");
+          const numberOfSlides = slides.length;
+          var slideNumber = 0;
+      
+          //image slider next button
+          nextBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber++;
+      
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider previous button
+          prevBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber--;
+      
+            if(slideNumber < 0){
+              slideNumber = numberOfSlides - 1;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider autoplay
+          var playSlider;
+      
+          var repeater = () => {
+            playSlider = setInterval(function(){
+              slides.forEach((slide) => {
+                slide.classList.remove("active");
+              });
+              slideIcons.forEach((slideIcon) => {
+                slideIcon.classList.remove("active");
+              });
+      
+              slideNumber++;
+      
+              if(slideNumber > (numberOfSlides - 1)){
+                slideNumber = 0;
+              }
+      
+              slides[slideNumber].classList.add("active");
+              slideIcons[slideNumber].classList.add("active");
+            }, 6000);
+          }
+          repeater();
+      
+          //stop the image slider autoplay on mouseover
+          slider.addEventListener("mouseover", () => {
+            clearInterval(playSlider);
+          });
+      
+          //start the image slider autoplay again on mouseout
+          slider.addEventListener("mouseout", () => {
+            repeater();
+          });
+          </script>
+ 
+  
+<!---BLOG-->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/Blog</p>
+
+<div class="rowblog">
+  <div class="columnblog left" style="background-color:none;">
+    <h2>7 Major Reasons why your business needs a Website</h2>    
+    <p style="font-size:15px; font-style:italic;"> <a style="text-decoration: none;" href="#">Queenstar Computers:</a> 15 Dec, 2023  | Category>> BizTech</p>
+    <p> Conducting business in a competitive world requires one to position themselves strategically and devise a feasible plan to maintain a competitive edge in the market. Having a website is one of the major strategies that a business needs to adopt. </p>
+
+    <img src="businessoffice.jpg" alt="#" style="width:100%">
+    <p> There are a variety of reasons why a business requires a website and some of the most crucial ones are as follows: </p>
+    <h3> 1) Improves Credibility </h3>
+    <p> A website increases the company’s credibility. A website is the face of your business thus it creates a strong first impression, and builds trust and credibility in the minds of the consumers. A business with a polished and professional website gives your business an instant boost in credibility. A professional website is the best way to stand out in the highly competitive business arena. Apart from building a strong online presence, it helps to communicate quality information to your clients. However, most customers expect a legitimate business to have a website and social media accounts. </p>
+    <h3> 2) Digital Marketing </h3>
+    <p> A website can help a business to advertise its products and services in a shorter period to a large audience, and this helps to save on costs. Also, customers can shop online directly through your website, make their preferred orders, and pay, then wait for the product to be shipped to their location. This is very convenient especially for the customer since they do not need to make travel arrangements. </p>
+    <h3> 3) Brand Awareness </h3>
+    <p> A website tends to showcase the brand of a business to prospective customers. It helps to create an image of who you are by letting the audience know what you represent. Potential customers can know the kind of products and services you offer as they can get reliable information on your website. </p>
+    <h3> 4) Generating Leads thus Increasing Sales </h3>
+    <p> As people are searching for products and services online and find your business, they try to gather more information about your products or services and the entire company. Through a website, details of the company can be known including its location, its partners, contact information, community service, works done, and general activity. All these offer your business a chance to grow and increase your sales. </p>
+    <h3> 5) Attracting Traffic </h3>
+    <p> A website that is search engine optimized stands a high chance of ranking well in Google search results. This in turn ensures that when people search online for a product or service similar to yours, they will be able to view your website and will visit it to get more information. This is a great chance for your business to increase its customer base. </p>
+    <h3> 6) Improving Customer Experience </h3>
+    <p> Having a website alleviates the need for your employees to attend and reply to all calls which is quite tedious and affect productivity due to a lot of time wasted.  Having a website can reduce the number of calls received and also improve the productivity of the employees. A well-designed website can help customers to find useful information easily without calling thus boosting their experience. Also, customers can make inquiries in real-time using a chat feature. </p>
+    <h3> 7) Announcements and Updates </h3>
+    <p> A website helps you to remain connected with your customers 24/7. You can post regular announcements and updates on your website and customers can be notified easily. In this manner, customers get updated about what the business is doing and what it plans for the future. </p>
+    
+    <br><br>
+<a href="1core i naming system.html" style="text-decoration:none"><h4>Read also ->>>>></h4></a>
+  </div>
+  
+  
+  <div class="columnblog right" style="background-color: none;">
+ 
+        <!----Recent Posts-->
+        <h2>Recent Posts</h2>
+        <img src="ictbusiness.jpg" alt="#" style="width:100%">
+        <a href="7businessInvestmentin ICT.html" style="text-decoration: none;"><h4> Why are businesses investing so much in information systems and technology? </h4></a>
+    
+        <img src="algorithm.png" alt="#" style="width:100%">
+          <a href="8efficiencyAndAnalysisofAlgorithm.html" style="text-decoration: none;"><h4> Efficiency and Analysis of Algorithm</h4></a>
+        <!----Categories-->
+        <div class="categ">
+          <h2>Categories</h2>
+        <a href="#">>> Hardware</a>
+        <a href="#">>> Software</a>
+        <a href="#">>> Programming</a>
+        <a href="#">>> Networking</a>
+        <a href="#">>> CyberSecurity</a>
+        <a href="#">>> Tech Trends</a>
+        <a href="#">>> FinTech</a>
+        <a href="#">>> BizTech</a>
+        </div>
+        <!----Subscribe-->
+ 
+        
+  </div>
+
+</div>
+
+<h2>You May also Like</h2>
+<hr style="width:12%;height:2px;border-width:0;background-color:#25CCF7;margin-left:44%;">
+
+<!-- You May also Like -->
+<div class="rows">
+<div class="columns">
+  <div class="contents">
+    <img src="6blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+    <a href="6ictAndGlobalization.html"><h4>How ICT Has Impacted Globalization</h4></a>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="contents">
+    <img src="2blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+    <a href="2cpucore.html"><h4>Different Types of CPU Cores</h4></a>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="contents">
+    <img src="4blogimg.jpg" alt="#" style="width:100%; border-radius: 0%;">
+    <a href="3cyberthreats.html"><h4>Major Information Security Threats and Control Measures</h4></a>
+  </div>
+</div>
+<div class="columns">
+  <div class="contents">
+    <img src="5blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+    <a href="5cpuPerformance.html"><h4>Factors that Determine Performance/Speed of CPU</h4></a>
+  </div>
+</div>
+<!-- END GRID -->
+</div>
+
+
+<!-- CAPTION -->
+<div class="caption">
+<h4>“We have the Knowledge and Experience to Perfect It.”</h4>
+</div>
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+          1st Floor, Rm B3</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>

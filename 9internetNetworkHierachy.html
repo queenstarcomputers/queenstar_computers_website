@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  
+    
+    <style>
+  
+   </style>
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+  <div class="header">
+    <a href="index.html"><img src="Queenstar_Web_Logo_final-removebg-preview.png"></a>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  
+  <!--BANNER-->
+  <!---slideshow-->
+  
+  <div class="slider">
+        <div class="slide active">
+          <img src="banner_image.jpg" alt="">
+          <div class="info">
+              <h2>Web & Systems Design </h2>
+            <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+            business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+             </p>
+          
+          </div>
+        </div>
+        <div class="slide">
+       <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+          <img src="nworking.jpg" alt="">
+          <div class="info">
+      <h2>Networking</h2>
+      <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="mtenance.jpg" alt="">
+          <div class="info">
+            <h2>ICT Maintenance</h2>
+            <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="banner1.jpg" alt="">
+          <div class="info">
+              <h2>ICT Consultancy</h2>
+        <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+          </div>
+        </div>
+        
+        <div class="navigation">
+          <i class="fas fa-chevron-left prev-btn"></i>
+          <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+      </div>
+  
+      <script type="text/javascript">
+          const slider = document.querySelector(".slider");
+          const nextBtn = document.querySelector(".next-btn");
+          const prevBtn = document.querySelector(".prev-btn");
+          const slides = document.querySelectorAll(".slide");
+          const slideIcons = document.querySelectorAll(".slide-icon");
+          const numberOfSlides = slides.length;
+          var slideNumber = 0;
+      
+          //image slider next button
+          nextBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber++;
+      
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider previous button
+          prevBtn.addEventListener("click", () => {
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+      
+            slideNumber--;
+      
+            if(slideNumber < 0){
+              slideNumber = numberOfSlides - 1;
+            }
+      
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          });
+      
+          //image slider autoplay
+          var playSlider;
+      
+          var repeater = () => {
+            playSlider = setInterval(function(){
+              slides.forEach((slide) => {
+                slide.classList.remove("active");
+              });
+              slideIcons.forEach((slideIcon) => {
+                slideIcon.classList.remove("active");
+              });
+      
+              slideNumber++;
+      
+              if(slideNumber > (numberOfSlides - 1)){
+                slideNumber = 0;
+              }
+      
+              slides[slideNumber].classList.add("active");
+              slideIcons[slideNumber].classList.add("active");
+            }, 6000);
+          }
+          repeater();
+      
+          //stop the image slider autoplay on mouseover
+          slider.addEventListener("mouseover", () => {
+            clearInterval(playSlider);
+          });
+      
+          //start the image slider autoplay again on mouseout
+          slider.addEventListener("mouseout", () => {
+            repeater();
+          });
+          </script>
+ 
+  
+<!---BLOG-->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/Blog</p>
+<div class="rowblog">
+  <div class="columnblog left" style="background-color:none;">
+    <h2> Internet Network Hierarchy  </h2>
+    <p style="font-size:15px; font-style:italic;"> <a style="text-decoration: none;" href="#">Queenstar Computers:</a> 19 Dec, 2023  | Category>> Networking</p>
+        
+<p> The binding element of the global Internet is that networks share a common IP addressing and global BGP routing framework that allows all networks to interconnect with each other either directly or indirectly.  There is little regulation, and network operators are free to decide where, how, and with whom to connect. Networks are classified by tiers based on the nature of their connection to other networks. <b>NAP (Network Access Point) </b> is the point from which an Internet service provider (ISP) drops down its lines and establishes a peering arrangement to provide Internet connectivity to customers. There are three ISP tiers as follows: </p>
+<img src="isp.png" alt="#" style="width:100%; border-radius: 0%;">
+
+<h3> Tier 1 ISPs </h3>
+<p> It is a type of ISP that directly connects with and has access to the global Internet backbone in a specific region under the <b> settlement-free peering agreement </b>, where the flow of information between one or more networks is exchanged voluntarily. </p>
+<h3> Characteristics of Tier 1 ISPs </h3>
+<ul style="color: #596275;">
+<li> It can reach every other network on the Internet solely via settlement-free interconnection/ settlement-free peering agreement. </li>
+<li> They interconnect at Internet Exchange (IX) points. </li>
+<li> They peer on more than one continent. </li>
+<li> They don’t pay to have their traffic delivered though similar-sized networks. 
+<li> They have access to the entire Internet routing table, solely through their peering relationships. </li>
+<li> They own or lease transoceanic fiber optic transport. </li>
+<li> They deliver packets to and from customers and to and from peers around the world. </li>
+<li> They use self-owned telecommunications circuits for those parts of their networks in which they have such an infrastructure. </li>
+<li> They may choose to make use of circuits provided by alternative carriers if they lack self-owned circuits. </li>
+<li> Examples: British Telecom, Verizon, Sprint, NTT, AT&T, Singtel, PCCW, AboveNet (AS 6461), Global Crossing, Telstra, and Deutsche Telekom. </li>
+</ul>
+
+<h3> Tier 2 ISPs </h3>
+<p> It is a type of ISP that utilizes a combinaton of paid transit via Tier 1 ISPs and peering with other Tier 2 ISPs to deliver internet traffic to end customers through Tier 3 ISPs. </p>
+<h3> Characteristics of Tier 2 ISPs </h3>
+<ul style="color: #596275;">
+<li> They are the most common ISPs. <li>
+<li> Tier 2 ISPs are smaller than Tier1 networks and are typically regional or national providers. </li>
+<li> They peer with other comparably-sized Tier-2 networks for free, but they have to pay and use the services of Tier1 ISPs. </li> 
+<li> A Tier2 ISP is a customer of a Tier1 ISP. </li>
+<li> Many large companies connect directly to one or more Tier1 or 2 ISPs. </li>
+<li> An ISP must pay to use the services of a network at a higher level, the actual cost depending on speed. </li>
+<li> Often, they have lower-quality networks and slower access speeds than tier 1 ISPs. </li>
+<li> They are at least one router hop away from the core of the Internet. </li>
+<li> Tier2 networks may choose to connect (peer with each other) directly, without going through a tier1 network. </li>
+<li> To complicate matters further, some Tier2 ISPs deal directly with end users.
+<li> Only a few tier 2 ISPs are able to provide service to customers on more than two continents. </li>
+<li> Examples: Comcast, Virgin Media, Cox Communications, CTS Telecom, Reach and Singapore Telecom/STIX. </li>
+</ul>
+
+<h3>  Tier 3 ISPs </h3>
+<p> It is an ISP that strictly purchases Internet transit. </p>
+<h3> Characteristics of Tier 1 ISPs </h3>
+<ul style="color: #596275;">
+<li> They have to pay and interconnect via a higher-level network i.e., they use and pay higher-tier ISPs for access to the rest of the Internet. </li>
+<li> It is primarily engaged in delivering Internet access to end customers through cable, DSL, fiber or wireless access networks. </li>
+<li> They are usually last mile providers, meaning they connect consumers to the internet without a network of their own, servicing only the connection leading into your home or office. </li>
+<li> They have many end users, but no or very few destinations (i.e., servers) on their networks. </li>
+<li> Their coverage is limited to a specific country or to sub-regions, such as a metropolitan area, within a country. </li>
+<li> They have relatively low network quality and access speeds because tier 3 ISPs' traffic requires several router hops to get out to a URL and because internet providers have little control over tier 3 ISP networks hence they are usually artificial congested and poorly maintained. </li>
+<li> Tier 3 ISPs are customers of higher-tier ISPs for access to the rest of the Internet. </li>
+<li> Tier 3 ISPs focus on local retail and consumer markets. They provide the "on ramp" or local access to the Internet for end customers. </li>
+<li> Users of lower-tier ISPs share a common gateway to higher tier ISPs, and the gateway bandwidth may degrade the access bandwidth. </li>
+</ul>
+
+
+
+<br><br>
+<a href="5cpuPerformance.html" style="text-decoration:none"><h4>Read also ->>>>></h4></a>
+
+  </div>
+
+  
+  <div class="columnblog right" style="background-color: none;">
+
+        <!----Recent Posts-->
+        <h2>Recent Posts</h2>
+        <img src="ictbusiness.jpg" alt="#" style="width:100%">
+        <a href="7businessInvestmentin ICT.html" style="text-decoration: none;"><h4> Why are businesses investing so much in information systems and technology? </h4></a>
+    
+        <img src="algorithm.png" alt="#" style="width:100%">
+          <a href="8efficiencyAndAnalysisofAlgorithm.html" style="text-decoration: none;"><h4> Efficiency and Analysis of Algorithm</h4></a>
+        <!----Categories-->
+        <div class="categ">
+          <h2>Categories</h2>
+        <a href="#">>> Hardware</a>
+        <a href="#">>> Software</a>
+        <a href="#">>> Programming</a>
+        <a href="#">>> Networking</a>
+        <a href="#">>> CyberSecurity</a>
+        <a href="#">>> Tech Trends</a>
+        <a href="#">>> FinTech</a>
+        <a href="#">>> BizTech</a>
+        </div>
+        <!----Subscribe-->
+
+        
+  </div>
+</div>
+
+<h2>You May also Like</h2>
+<hr style="width:12%;height:2px;border-width:0;background-color:#25CCF7;margin-left:44%;">
+
+<!-- You May also Like -->
+<div class="rows">
+  <div class="columns">
+    <div class="contents">
+      <img src="1blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="1core i naming system.html"><h4> Differences between Intel Core i3, i5, i7, and i9 Processors</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="2blogimg.png" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="2cpucore.html"><h4>Different Types of CPU Cores</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="3blogimg.jpg" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="3cyberthreats.html"><h4>Major Information Security Threats and Control Measures</h4></a>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="contents">
+      <img src="4blogimg.jpg" alt="#" style="width:100%; border-radius: 0%;">
+      <a href="4websignificance.html"><h4>7 Major Reasons why your business needs a Website</h4></a>
+    </div>
+  </div>
+<!-- END class rows -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- CAPTION -->
+<div class="caption">
+<h4>“We have the Knowledge and Experience to Perfect It.”</h4>
+</div>
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+          1st Floor, Rm B3</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>
