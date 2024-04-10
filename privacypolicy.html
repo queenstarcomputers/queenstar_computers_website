@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="stylesheet" href="stylehome.css">
+    <link rel="stylesheet" href="styleproducts.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+  <!--NAVIGATION BAR-->
+<div class="header">
+  <a href="index.html"><img src="Queenstar_Web_Logo_final-removebg-preview.png"></a>
+</div>
+  <div class="topnav" id="myTopnav">
+    <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+    <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <div class="dropdown">
+      <button class="dropbtn"> OUR SERVICES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="design.html"> Web & Systems Design</a>
+        <a href="networking.html">Networking</a>
+        <a href="maintenance.html">IT Systems Maintenance</a>
+        <a href="consultancy.html">ICT Consultancy</a>
+  
+      </div>
+    </div> 
+    <a href="products.html">PRODUCTS</a>
+    <a href="blog.html">BLOG</a>
+    <a href="corporatesustainability.html"> SUSTAINABILITY</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  
+  <script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+<!--BANNER-->
+<!---slideshow-->
+
+<div class="slider">
+  <div class="slide active">
+    <img src="banner_image.jpg" alt="">
+    <div class="info">
+        <h2>Web & Systems Design </h2>
+      <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+      business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+       </p>
+    
+    </div>
+  </div>
+  <div class="slide">
+ <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+    <img src="nworking.jpg" alt="">
+    <div class="info">
+<h2>Networking</h2>
+<p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="mtenance.jpg" alt="">
+    <div class="info">
+      <h2>ICT Maintenance</h2>
+      <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="banner1.jpg" alt="">
+    <div class="info">
+        <h2>ICT Consultancy</h2>
+  <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+    </div>
+  </div>
+  
+  <div class="navigation">
+    <i class="fas fa-chevron-left prev-btn"></i>
+    <i class="fas fa-chevron-right next-btn"></i>
+  </div>
+</div>
+
+<script type="text/javascript">
+    const slider = document.querySelector(".slider");
+    const nextBtn = document.querySelector(".next-btn");
+    const prevBtn = document.querySelector(".prev-btn");
+    const slides = document.querySelectorAll(".slide");
+    const slideIcons = document.querySelectorAll(".slide-icon");
+    const numberOfSlides = slides.length;
+    var slideNumber = 0;
+
+    //image slider next button
+    nextBtn.addEventListener("click", () => {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+      });
+
+      slideNumber++;
+
+      if(slideNumber > (numberOfSlides - 1)){
+        slideNumber = 0;
+      }
+
+      slides[slideNumber].classList.add("active");
+      slideIcons[slideNumber].classList.add("active");
+    });
+
+    //image slider previous button
+    prevBtn.addEventListener("click", () => {
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+      });
+
+      slideNumber--;
+
+      if(slideNumber < 0){
+        slideNumber = numberOfSlides - 1;
+      }
+
+      slides[slideNumber].classList.add("active");
+      slideIcons[slideNumber].classList.add("active");
+    });
+
+    //image slider autoplay
+    var playSlider;
+
+    var repeater = () => {
+      playSlider = setInterval(function(){
+        slides.forEach((slide) => {
+          slide.classList.remove("active");
+        });
+        slideIcons.forEach((slideIcon) => {
+          slideIcon.classList.remove("active");
+        });
+
+        slideNumber++;
+
+        if(slideNumber > (numberOfSlides - 1)){
+          slideNumber = 0;
+        }
+
+        slides[slideNumber].classList.add("active");
+        slideIcons[slideNumber].classList.add("active");
+      }, 6000);
+    }
+    repeater();
+
+    //stop the image slider autoplay on mouseover
+    slider.addEventListener("mouseover", () => {
+      clearInterval(playSlider);
+    });
+
+    //start the image slider autoplay again on mouseout
+    slider.addEventListener("mouseout", () => {
+      repeater();
+    });
+    </script>
+<!---PRIVACY POLICY  -->
+<p style="text-align: left;padding-left: 50px;"><a href="index.html" style="text-decoration: none; color:blue;">Home</a>/ Privacy Policy</p>
+
+<h2> Our Privacy Policy</h2>
+<hr style="width:12%;height:2px;border-width:0;background-color:#25CCF7;margin-left:44%;">
+<p style="line-height: 1.8;"> Any information we collect from users is very crucial as it enables us to personalize and improve our services. <br>
+This document gives  a description of the types of information we collect from our users and how we use it. </p>
+<h3> Personal information you give us</h3>
+<p style="line-height: 1.8;"> We receive and store any information you provide to us on our website through subscription or provide to us in any other way. <br>
+Some types of Personal Information collected may include your name, e-mail address and <br>
+phone numbers that are entered on this website, sent to us by email, or through calling. </p>
+<h3> E-mail communications</h3>
+<p style="line-height: 1.8;"> The communications we receive through emails you send to us help us to improve our services hence meet customer’s requirements.
+<h3> Personal information collected automatically</h3>
+<p style="line-height: 1.8;"> Just like other websites, log files are stored on the web server saving details like the visitor’s browser type, IP address, referring page and time of visit.  <br>
+We receive and store certain types of information whenever you interact with this website. <br>
+We automatically receive and record information from your browser including <br>
+unique device identifiers, and mobile network information such as phone number, type of browser, IP address and the page you requested. <br>
+This information is collected and stored using Google Analytics. <br>
+Google Analytics is a web analytics service that provides statistics and basic analytical tools for Search Engine Optimization (SEO) and marketing purposes.  </p>
+<h3> Google Ads </h3>
+<p style="line-height: 1.8;">Google, as a third-party vendor, uses cookies and analytics to serve ads. <br>
+Google uses the DART cookie to serve ads to visitors based on their visit to sites they visit on the Internet. <br>
+ Google Analytics helps to track website performance and collect visitor insights. <br>
+It can help companies and businesses to determine top sources of user traffic, measure the success of their <br>
+marketing activities, discover patterns and trends in user engagement, <br>
+ track goal completions (such as purchases, adding products to shopping carts), and obtain other visitor information like demographics. <br>
+However, Google may use the data gathered to contextualize and personalize the ads of its own advertising network. <br>
+However, website visitors may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy. </p>
+<h3> Browser cookies</h3>
+<p style="line-height: 1.8;">Cookies are small pieces of text that we transfer to your computer's hard drive through your browser to enable our systems to recognize your browser <br>
+and tell us how and when pages in our site are visited and by how many people. Also, cookies help that website remember information about your visit, <br>
+which can both make it easier to visit the site again and make the site more useful to you. <br>
+However, we do not mix the site usage information collected through cookies with other Personal Information. <p>
+<p style="line-height: 1.8;">Ads that may appear on this website may be delivered to users by our advertising partners, who may set cookies. <br>
+Such cookies allow the ad server to recognize your computer every time they send you an online advertisement to compile information about you or other users of your computer. <br>
+This information allows ad networks deliver promotional messages to a customer based on their specific traits, preferences, and interests, among other things. <br>
+ Nevertheless, this Privacy Policy covers the use of cookies by this website but do not cover the use of cookies by any advertisers or by Google Analytics. <p>
+<h3> How the Information is used</h3>
+<p> Provision, maintenance, protection and improvement of our service. </p>
+<p> To customize the content, we offer to you such as giving you more relevant search results and adverts. </p>
+<p> We use email address to send you newsletters and informing you about our services, offers by us or our affiliates. </br></br>
+For instance, we can e-mail you to inform you about upcoming changes or improvements. E-mail addresses will not be sold, leased or rented to 3rd parties. </p>
+<p> We use information collected from cookies and other information collection technologies to improve your user experience and the overall quality of our services. </p>
+
+
+<p style="line-height: 1.8;"> However, we will request for your consent before using information for a purpose other than those set out in this Privacy Policy.
+<br>We will also use information as required by law. </p>
+<h3> Visitor Options </h3>
+<p style="line-height: 1.8;">    
+ If you have subscribed to one of our services, you may unsubscribe as you wish by following the instructions which are included in e-mail that you receive. <br>
+Also, you may be able to block cookies via your browser settings but this may prevent you from access to certain features of the website. </p>
+
+
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+         1st Floor, Rm B3</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+ 
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>
