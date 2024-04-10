@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Cookie" >
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="stylehome.css">
+  <link rel="stylesheet" href="styleproducts.css">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+  
+  <style>
+
+ </style>
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<div class="header"><a href="index.html"><img src="Queenstar_Web_Logo_final-removebg-preview.png"></a>
+
+
+</div>
+
+
+
+<div class="topnav" id="myTopnav">
+  <!--<a href="index.html"><img src="images/logogerom.png"></a>-->
+ <a href="index.html" class="active" style="margin-left:50px;"> HOME</a>
+  <a href="aboutus.html">ABOUT US</a>
+  <div class="dropdown">
+    <button class="dropbtn"> OUR SERVICES
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="design.html"> Systems & Web Development </a>
+      <a href="networking.html">Networking & IOT</a>
+      <a href="maintenance.html">ICT Systems Maintenance</a>
+      <a href="consultancy.html">ICT Consultancy</a>
+    </div>
+  </div> 
+  <a href="products.html">PRODUCTS</a>
+  <a href="blog.html">BLOG</a>
+  <a href="blog.html"> SUSTAINABILITY</a>
+  <a href="contact.html">CONTACT</a>
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+ <!---SOCIAL MEDIA
+ <div class="socialmedia">
+  <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a> 
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a> 
+  <a href="#" class="instagram"><i class="fa fa-instagram"></i></a> 
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a> 
+</div>-->  
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+<!--BANNER-->
+<!---slideshow-->
+
+<div class="slider">
+      <div class="slide active">
+        <img src="banner_image.jpg" alt="">
+        <div class="info">
+            <h2>Systems & Web Development </h2>
+          <p> Boost your business by widening your customer base, maintaining a competitive edge in the market, increasing 
+          business efficiency and maximizing Return on Investment (ROI) using websites and Systems.
+           </p>
+        
+        </div>
+      </div>
+      <div class="slide">
+     <!-- <img src="images/networking.jpg" alt="#" style="width:100%"> -->
+        <img src="nworking.jpg" alt="">
+        <div class="info">
+    <h2>Networking & IOT</h2>
+    <p> Networking Computers, CCTV Installation, Wi-Fi Installation & Setup, Networking IOT Devices such as home appliances, light fixtures, smart pacemakers, monitoring systems, surveillance robots, digital control systems, smart agriculture, infrastructure sensors etc.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="mtenance.jpg" alt="">
+        <div class="info">
+          <h2>ICT Systems Maintenance</h2>
+          <p> Computer Deployment & Setup, Hardware & Software and Installation, Hardware & Software Upgrading, Malware Removal and Prevention, Data Backup and Recovery, Standard Routine Maintenance, etc. </p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="banner1.jpg" alt="">
+        <div class="info">
+            <h2>ICT Consultancy</h2>
+      <p> Cybersecurity (Information & Systems Security), ICT Risks & Mitigation Measures, Disaster Recovery Plan, Cloud Infrastructure Management, ICT Project Management, Communication & Network Infrastructure services, User Support and Maintenance Services etc. </p>
+        </div>
+      </div>
+      
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+        const slider = document.querySelector(".slider");
+        const nextBtn = document.querySelector(".next-btn");
+        const prevBtn = document.querySelector(".prev-btn");
+        const slides = document.querySelectorAll(".slide");
+        const slideIcons = document.querySelectorAll(".slide-icon");
+        const numberOfSlides = slides.length;
+        var slideNumber = 0;
+    
+        //image slider next button
+        nextBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+    
+          slideNumber++;
+    
+          if(slideNumber > (numberOfSlides - 1)){
+            slideNumber = 0;
+          }
+    
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+    
+        //image slider previous button
+        prevBtn.addEventListener("click", () => {
+          slides.forEach((slide) => {
+            slide.classList.remove("active");
+          });
+          slideIcons.forEach((slideIcon) => {
+            slideIcon.classList.remove("active");
+          });
+    
+          slideNumber--;
+    
+          if(slideNumber < 0){
+            slideNumber = numberOfSlides - 1;
+          }
+    
+          slides[slideNumber].classList.add("active");
+          slideIcons[slideNumber].classList.add("active");
+        });
+    
+        //image slider autoplay
+        var playSlider;
+    
+        var repeater = () => {
+          playSlider = setInterval(function(){
+            slides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+            slideIcons.forEach((slideIcon) => {
+              slideIcon.classList.remove("active");
+            });
+    
+            slideNumber++;
+    
+            if(slideNumber > (numberOfSlides - 1)){
+              slideNumber = 0;
+            }
+    
+            slides[slideNumber].classList.add("active");
+            slideIcons[slideNumber].classList.add("active");
+          }, 6000);
+        }
+        repeater();
+    
+        //stop the image slider autoplay on mouseover
+        slider.addEventListener("mouseover", () => {
+          clearInterval(playSlider);
+        });
+    
+        //start the image slider autoplay again on mouseout
+        slider.addEventListener("mouseout", () => {
+          repeater();
+        });
+        </script>
+<!---SOCIAL MEDIA-->  
+
+
+
+<!---WHAT WE DO-->
+<!-- MAIN (Center website) -->
+<div class="main">
+  <div class="heading2"><h2> WHAT WE DO</h2></div> 
+
+  <hr style="width:12%;height:2px;border-width:0;background-color:#1B1464;margin-left:44%;">
+
+  <!-- Portfolio Gallery Grid -->
+  <div class="rows">
+    <div class="columns">
+      <div class="contents">
+        <img src="webd.jpg" alt="#" style="width:100%">
+        <a href="design.html"><h4>Systems & Web Development</h4></a>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="contents">
+      <img src="networking.jpg" alt="#" style="width:100%">
+      <a href="networking.html"><h4>Networking & IOT</h4></a>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="contents">
+      <img src="maintenance.jpg" alt="Nature" style="width:100%">
+        <a href="maintenance.html"><h4>ICT Systems Maintenance</h4></a>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="contents">
+      <img src="consultancy.jpg" alt="#" style="width:100%">
+        <a href="consultancy.html"><h4>Cyber & ICT Consultancy </h4></a>
+      </div>
+    </div>
+
+  <!-- END GRID -->
+  </div>
+  
+  <!-- END MAIN -->
+</div>
+  
+  
+
+<!---SHOP-->
+  <div class="shop">
+    <div class="heading2"><h2>OUR PRODUCTS</h2></div> 
+  
+     <hr style="width:12%;height:2px;border-width:0;background-color:#1B1464;margin-left:44%;">
+ <p>In addition to the above services we also supply products and accessories related to Information Technology on order basis.<br></p>
+  </div> 
+<!---IMAGES-->
+<div class="rowss">
+  <div class="columnss">
+    <div class="contentss">
+      <img src="Computersandlaptops.jpg" alt="#" style="width:100%">
+      <a href="products.html"><h4> Computers & Laptops</h4></a>
+    </div>
+  </div>
+  <div class="columnss">
+    <div class="contentss">
+    <img src="computeraccessories.jpg" alt="#" style="width:100%">
+    <a href="products.html"><h4>Computer Accessories</h4></a>
+    </div>
+  </div>
+  <div class="columnss">
+    <div class="contentss">
+    <img src="stationery.jpeg" alt="#" style="width:100%">
+      <a href="products.html"><h4>Printers</h4></a>
+
+    </div>
+  </div>
+<!-- END IMAGES -->
+</div>
+
+<!-- TEXT CENTER -->
+<div class="text-center"> <br>
+  <a href="products.html">See More Products</a>
+</div>
+<br><br>
+
+<!-- END MAIN -->
+</div>
+<!---WHY CHOOSE US-->
+<div class="heading2"><h2>WHY CHOOSE US</h2></div> 
+<hr style="width:12%;height:2px;border-width:0;background-color:#1B1464;margin-left:44%;">
+<div class="responsive">
+  <div class="gallery">
+      <img src="professionalism.jpeg" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Work Ethics</h4>
+    </div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="professionalism.jpg" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Professionalism</h4>
+    </div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="customer focus.png" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Customer Oriented</h4>
+    </div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="money.jpeg" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Pocket Friendly</h4>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<!-- TEXT CENTER -->
+<div class="text-center"> <br>
+  <a href="ourservices.html">See Our Portfolio </a>
+</div>
+
+<!-----KEY CLIENTS-->
+<div class="heading2"><h2>KEY CLIENTS</h2></div> 
+<hr style="width:12%;height:2px;border-width:0;background-color:#1B1464;margin-left:44%;">
+<p style="line-height:1.8;">Our company supports a variety  of clients across the country in various sectors such as <br>  retail, law, engineering, accounting, sales and marketing, agriculture, religion, and corporate. <br>We are grateful to our clients for their support and loyalty to our company. <br> We are also welcome to any entity willing to do business with us and in promoting ICT capabilities and sustainability. 
+<br>Please feel free to <a href= "contact.html" > <b style="color:#1B1464;"> contact us here.</b></a></p>
+<div class="responsive">
+  <div class="gallery">
+      <img src="education.jpeg" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Education and Centres of Excellence</h4>
+    </div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+      <img src="sme.jpg" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Individual Entities</h4>
+    </div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="religion.png" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Religious Organizations</h4>
+    </div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="sme.jpg" alt="#" width="60" height="40">
+    </a>
+    <div class="desc">
+      <h4>Small and Micro Enterprises</h4>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<!-- TEXT CENTER -->
+<div class="text-center"> <br>
+  <a href="ourservices.html">See Our Portfolio </a>
+</div>
+
+<!--TESTIMONIALS-->
+<div class="heading2"><h2>TESTIMONIALS</h2></div> 
+<hr style="width:12%;height:2px;border-width:0;background-color:#1B1464;margin-left:44%;">
+<br>
+<div class="roww">
+  <div class="columnn" style="background-color:black;">
+    <figure class="snip1157">
+      <blockquote>I highly recommend Queenstar computers an excellent place for learning computer skills. As a former student I can confidently say my experience there was highly enriching and beneficial. The instructors are knowledgeable and experienced, providing valuable insights and guidance throughout the learning process.
+        <div class="arrow"></div>
+      </blockquote>
+      <img src="charity.jpeg" alt="sq-sample3" />
+      <div class="author">
+        <h5>Charity Motoku<span> Former Student  </span></h5>
+      </div>
+    </figure>
+  </div>
+  
+  <div class="columnn" style="background-color:black;">
+    <figure class="snip1157">
+      <blockquote>I would like to give special recognition to Queenstar Computers for designing our business card. Now we are able to access clients all over the country conveniently. I was thoroughly impressed by their creativity, attention to detail and professionalism. <br><br> 
+        <div class="arrow"></div>
+      </blockquote> 
+      <img src="Martin.png" alt="sq-sample3" />
+      <div class="author">
+        <h5>Martin Gathumbi. <span>Advovate</span></h5>
+      </div>
+    </figure>
+  </div>
+  
+  <div class="columnn" style="background-color:black;">
+    <figure class="snip1157">
+      <blockquote>I recently had an amazing experience with Queenstar computers for their excellent services they offer,I happened to bind my books there and I was mesmerized by their expertise and professionalism. I highly recommend their services to anyone in need of Computer services and technical support.
+        <div class="arrow"></div>
+      </blockquote>
+      <img src="Esther Njenga.jpeg" alt="sq-sample3" />
+      <div class="author">
+        <h5>Esther Njenga <span>Client</span></h5>
+      </div>
+    </figure>
+  </div>
+  
+  <div class="columnn" style="background-color:black;">
+    <figure class="snip1157">
+      <blockquote>I wasn't sure about the best software solutions for my business, so I consulted with the experts at Queenster Computers. They provided valuable insights and tailored support, helping me make informed decisions for my IT needs. I highly recommend their services to anyone looking for reliable tech support. 
+        <div class="arrow"></div>
+      </blockquote>
+      <img src="rev_muraya.JPG" alt="sq-sample3" />
+      <div class="author">
+        <h5>Rev. Moses Muraya<span>Reverend KAG Church, Kasuku</span></h5>
+      </div>
+    </figure>
+  </div>
+</div>
+<div class="clearfix"></div>
+<!-- TEXT CENTER -->
+<div class="text-center"> <br>
+  <a href="contact.html">Contact Us for Business Deals </a>
+</div>
+
+<!---2 COLUMNS-->   
+<div class="rowcont">
+  <div class="columncont" style="background-color:none;">
+    <!---blög--->
+    <div class="heading2"><h2>Featured Articles in Our Blog</h2></div> 
+
+<div class="rowsBlogf">
+    <div class="columnsBlogf">
+    <div class="contentsBlogf">
+      <a href="blog.html"><img src="webd.jpg" alt="#" style="width:100%" height="100px"></a>
+      <a href="blog.html"><h4> Importance of Maintaining Computer Systems</h4></a>
+    </div>
+  </div>
+  
+  <div class="columnsBlogf">
+    <div class="contentsBlogf">
+      <a href="4websignificance.html"><img src="businessoffice.jpg" alt="#" style="width:100%" height="100px"></a>
+      <a href="4websignificance.html"><h4>7 Major Reasons why your business needs a Website</h4></a>
+    </div>
+  </div>
+
+  <div class="columnsBlogf">
+    <div class="contentsBlogf">
+      <a href="3cyberthreats.html"><img src="cyberthreats.jpg" alt="#" style="width:100%" height="100px"></a>
+      <a href="3cyberthreats.html"><h4>Major Information Security Threats and Control Measures</h4></a>
+    </div>
+  </div>
+
+  <div class="columnsBlogf">
+    <div class="contentsBlogf">
+      <a href="6ictAndGlobalization.html"><img src="MKUmaincampus.jpg" alt="#" style="width:100%" height="100px"></a>
+      <a href="6ictAndGlobalization.html"><h4>How ICT Has Impacted Globalization</h4></a>
+    </div>
+  </div>
+<!-- End class rowsBlogf -->
+</div>
+  </div>
+  
+  
+  <!--- LATEST UPDATES -->
+  <div class="columncont" style="background-color:none;">
+    <!---blög--->
+    <div class="heading2"><h2>Latest Updates</h2></div> 
+
+<div class="rowsBlogf">
+   <h3><a href="bursaries.html">Available Bursaries</a></h3>
+   <h3><a href="scholarships.html">Available Scholarships</a></h3>
+   <h3><a href="jobs.html">Search Jobs Here</a></h3>
+
+<!-- End class rowsBlogf -->
+</div>
+  </div>
+</div>
+<!-- CAPTION -->
+<div class="caption">
+<h4>“We have the Knowledge and Experience to Perfect It.”</h4>
+</div>
+
+<!--FOOTER-->
+<footer class="footer-distributed">
+  <div class="footer-left">
+  <center><img src="Queenstar_Web_Logo_final-removebg-preview.png"> </center>  <br>
+    <p class="footer-links">
+      <a href="index.php">Home</a>
+      |
+      <a href="portfolio.html">Our Portfolio</a>
+      |
+      <a href="privacypolicy.html">Privacy Policy</a>
+      |
+      <a href="contact.html">Contact Us</a>
+
+    </p>
+    <div class="office-hours">
+      <h4> Office Hours </h4>
+      <p>Monday-Saturday :  08.00 A.M. - 9.00 P.M.</p> 
+      <p> Sunday : 2.00 P.M. - 9.00 P.M.</p> 
+    </div>
+    <br>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>Lesirko House,Kasuku,
+         1st Floor, Rm B3</span>
+        </p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254729497356</p>
+    </div>
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254705608609</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="#">queenstarcomputers@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span> Queenstar Computers Brief</span>
+      We offer a variety of services in the IT sector such as Web & Systems Design, Networking, ICT Systems Maintenance, Supply of ICT related products and ICT Consultancy</p>
+   <!--- <div class="footer-icons">
+      <a href="https://web.facebook.com/profile.php?id=100089096142530" target="_blank"><i class="fa fa-facebook"></i></a> 
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+    </div>---->
+    <br><br>
+<!---Whatsapp chat-->
+<div style="text-align:center;">
+  <a href="https://wa.me/2540729497356?text=">
+    <img src="whatsapp-removebg-preview.png" alt="#" style="width:20%">
+  </a> 
+</div>
+
+  </div>
+  <hr>
+  <p class="footer-company-name">© 2023 Queenstar Computers. All Rights Reserved</p>
+</footer>
+
+<!----BACK TOP BUTTON-->
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Back Top</button>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+  
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
+
+</body>
+</html>
